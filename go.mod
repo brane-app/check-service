@@ -3,7 +3,10 @@ module github.com/imonke/check-service
 go 1.13
 
 require (
-	github.com/gastrodon/groudon v0.0.0-20200705001222-75090f789024
-	github.com/imonke/monkebase v0.0.0-20200704215041-cfba85f68074
-	github.com/imonke/monketype v0.0.0-20200704082322-8bd39803870c
+	github.com/gastrodon/groudon v0.0.0-20201111174124-cf23fec3827b
+	github.com/google/uuid v1.1.2 // indirect
+	github.com/imonke/monkebase v0.0.0-20201112031310-8b05081cb292
+	github.com/imonke/monketype v0.0.0-20201111232752-19268649a84b
+	github.com/mitchellh/mapstructure v1.4.0 // indirect
+	golang.org/x/crypto v0.0.0-20201208171446-5f87f3452ae9 // indirect
 )
