@@ -8,9 +8,14 @@ import (
 	"strings"
 )
 
+func pathSplit(it rune) (ok bool) {
+	ok = it == '/'
+	return
+}
+
 func query(path string) (want string) {
-	var split []string = strings.Split(strings.TrimSuffix(path, "/"), "/")
-	want = split[len(split)-1]
+	var parts []string = strings.FieldsFunc(path, pathSplit)
+	want = parts[len(parts)-1]
 	return
 }
 
