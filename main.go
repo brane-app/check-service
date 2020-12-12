@@ -13,7 +13,7 @@ import (
 func main() {
 	monkebase.Connect(os.Getenv("MONKEBASE_CONNECTION"))
 	groudon.RegisterHandler("GET", "^/nick/"+monkelib.NICK_PATTERN+"/?$", checkNick)
-	groudon.RegisterHandler("GET", "^/email/"+monkelib.NICK_PATTERN+"/?$", checkEmail)
+	groudon.RegisterHandler("GET", "^/email/"+monkelib.EMAIL_PATTERN+"/?$", checkEmail)
 	http.Handle("/", http.HandlerFunc(groudon.Route))
 	log.Fatal(http.ListenAndServe(":8000", nil))
 }
