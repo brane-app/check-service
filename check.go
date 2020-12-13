@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/imonke/monkebase"
+	"git.gastrodon.io/imonke/monkebase"
 
 	"fmt"
 	"net/http"
