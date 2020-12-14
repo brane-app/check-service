@@ -2,32 +2,21 @@ package main
 
 import (
 	"git.gastrodon.io/imonke/monkebase"
+	"git.gastrodon.io/imonke/monkelib"
 
 	"fmt"
 	"net/http"
-	"strings"
 )
 
-func pathSplit(it rune) (ok bool) {
-	ok = it == '/'
-	return
-}
-
-func query(path string) (want string) {
-	var parts []string = strings.FieldsFunc(path, pathSplit)
-	want = parts[len(parts)-1]
-	return
-}
-
 func exists(key string, request *http.Request) (code int, r_map map[string]interface{}, err error) {
-	var query string = query(request.URL.Path)
-
+	var parts []string = monkelib.SplitPath(request.URL.Path)
+	var part string = parts[len(parts)-1]
 	var exists bool
 	switch key {
 	case "nick":
-		_, exists, err = monkebase.ReadSingleUserNick(query)
+		_, exists, err = monkebase.ReadSingleUserNick(part)
 	case "email":
-		_, exists, err = monkebase.ReadSingleUserEmail(query)
+		_, exists, err = monkebase.ReadSingleUserEmail(part)
 	default:
 		err = fmt.Errorf("I have no idea how I got key %s", key)
 	}
