@@ -1,8 +1,8 @@
 package main
 
 import (
-	"git.gastrodon.io/imonke/monkebase"
-	"git.gastrodon.io/imonke/monketype"
+	"github.com/brane-app/database-library"
+	"github.com/brane-app/types-library"
 
 	"fmt"
 	"net/http"
@@ -16,16 +16,16 @@ const (
 )
 
 var (
-	user monketype.User
+	user types.User
 )
 
 func TestMain(main *testing.M) {
-	user = monketype.NewUser(nick, "", email)
-	monkebase.Connect(os.Getenv("DATABASE_CONNECTION"))
-	monkebase.WriteUser(user.Map())
+	user = types.NewUser(nick, "", email)
+	database.Connect(os.Getenv("DATABASE_CONNECTION"))
+	database.WriteUser(user.Map())
 
 	var result int = main.Run()
-	monkebase.DeleteUser(user.ID)
+	database.DeleteUser(user.ID)
 	os.Exit(result)
 }
 

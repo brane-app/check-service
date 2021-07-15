@@ -3,11 +3,9 @@ module github.com/brane-app/check-service
 go 1.13
 
 require (
-	git.gastrodon.io/imonke/monkebase v0.0.0-20201220232952-1b98844d45a1
-	git.gastrodon.io/imonke/monkelib v0.0.0-20201214024159-902d557ed57c
-	git.gastrodon.io/imonke/monketype v0.0.0-20201213235443-51eac0ed05d0
-	github.com/gastrodon/groudon v1.0.0
-	github.com/google/uuid v1.1.4 // indirect
-	github.com/mitchellh/mapstructure v1.4.0 // indirect
+	github.com/brane-app/database-library v0.0.0-20210715075917-bccd1cc66e8d
+	github.com/brane-app/tools-library v0.0.0-20210715083214-11a40c534977
+	github.com/brane-app/types-library v0.0.0-20210715073740-2d81655815f7
+	github.com/gastrodon/groudon/v2 v2.1.0
 	golang.org/x/crypto v0.0.0-20201221181555-eec23a3978ad // indirect
 )
