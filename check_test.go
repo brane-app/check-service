@@ -21,7 +21,7 @@ var (
 
 func TestMain(main *testing.M) {
 	user = monketype.NewUser(nick, "", email)
-	monkebase.Connect(os.Getenv("MONKEBASE_CONNECTION"))
+	monkebase.Connect(os.Getenv("DATABASE_CONNECTION"))
 	monkebase.WriteUser(user.Map())
 
 	var result int = main.Run()
