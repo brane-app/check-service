@@ -1,9 +1,8 @@
 package main
 
 import (
-	"git.gastrodon.io/imonke/monkebase"
-	"git.gastrodon.io/imonke/monkelib"
-	"github.com/gastrodon/groudon"
+	"github.com/brane-app/database-library"
+	"github.com/gastrodon/groudon/v2"
 
 	"log"
 	"net/http"
@@ -11,9 +10,10 @@ import (
 )
 
 func main() {
-	monkebase.Connect(os.Getenv("DATABASE_CONNECTION"))
-	groudon.RegisterHandler("GET", "^/nick/"+monkelib.NICK_PATTERN+"/?$", checkNick)
-	groudon.RegisterHandler("GET", "^/email/"+monkelib.EMAIL_PATTERN+"/?$", checkEmail)
-	http.Handle("/", http.HandlerFunc(groudon.Route))
+	database.Connect(os.Getenv("DATABASE_CONNECTION"))
+
+	register_handlers()
+
+	http.Handle(os.Getenv("PATH_PREFIX")+"/", http.HandlerFunc(groudon.Route))
 	log.Fatal(http.ListenAndServe(":8000", nil))
 }
