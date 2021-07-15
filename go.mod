@@ -1,4 +1,4 @@
-module git.gastrodon.io/imonke/check-service
+module github.com/brane-app/check-service
 
 go 1.13
 
