@@ -6,7 +6,6 @@ import (
 
 	"fmt"
 	"net/http"
-	"os"
 	"testing"
 )
 
@@ -21,12 +20,7 @@ var (
 
 func TestMain(main *testing.M) {
 	user = types.NewUser(nick, "", email)
-	database.Connect(os.Getenv("DATABASE_CONNECTION"))
 	database.WriteUser(user.Map())
-
-	var result int = main.Run()
-	database.DeleteUser(user.ID)
-	os.Exit(result)
 }
 
 func testCheck(test *testing.T, key, query string, expected bool) {
