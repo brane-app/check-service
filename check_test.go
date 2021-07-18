@@ -18,7 +18,7 @@ var (
 	user types.User
 )
 
-func TestMain(main *testing.M) {
+func setup(main *testing.M) {
 	user = types.NewUser(nick, "", email)
 	database.WriteUser(user.Map())
 }
